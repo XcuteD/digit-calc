@@ -1,0 +1,271 @@
+/* СБРОС СТИЛЕЙ */
+
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  background-color: grey;
+}
+
+.calc-app {
+  margin: 100px 0 0 100px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 370px;
+  text-align: center;
+  background-color: #000;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(7, 80px);
+  grid-gap: 10px;
+  grid-template-areas: 
+    "exp exp exp exp"
+    "res res res res"
+    "ac del prc div"
+    "seven eight nine mult"
+    "four five six subs"
+    "one two three sum"
+    "zero zero coma eqls";
+}
+.output {
+  &__expression {
+    grid-area: exp;
+
+    height: 50px;
+    font-size: 30px;
+    text-align: right;
+    line-height: 50px;
+    padding-right: 10px;
+    transition: all .3s;
+  }
+
+  &__expression_active {
+    height: 75px;
+    font-size: 50px;
+    line-height: 75px;
+  }
+
+  &__result {
+    position: relative;
+    bottom: 0;
+    grid-area: res;
+
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: right;
+    padding-right: 10px;
+    transition: all .3s;
+  }
+  &__result_active {
+    position: relative;
+    bottom: 25px;
+    padding-bottom: 25px;
+    height: 75px;
+    font-size: 50px;
+    line-height: 75px;
+    text-align: right;
+    padding: 0 10px 10px 0;
+  }
+}
+.input {
+  
+  &__option {
+    font-size: 30px;
+    padding: 18px;
+    color: yellow;
+    outline: gray solid 1px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: color, background-color, 0.3s;
+  }
+  &__option:hover {
+    background-color: yellow;
+    color: black;
+    outline: none;
+    transition: color, background-color, 0.5s;
+  }
+  &__operator {
+    font-size: 30px;
+    padding: 18px;
+    color: yellow;
+    outline: gray solid 1px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: color, background-color, 0.3s;
+  }
+  &__operator:hover {
+    background-color: yellow;
+    color: black;
+    outline: none;
+    transition: color, background-color, 0.5s;
+  }
+  &__number {
+    font-size: 30px;
+    padding: 18px;
+    outline: gray solid 1px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    transition: color, background-color, 0.3s;
+  }
+  &__number:hover {
+    background-color: gray;
+    color: black;
+    outline: none;
+    transition: color, background-color, 0.5s;
+  }
+}
+
+.clear {
+  grid-area: ac;
+}
+
+.delete {
+  grid-area: del;
+}
+
+.percent {
+  grid-area: prc;
+}
+
+.divide {
+  grid-area: div;
+}
+
+.multiply {
+  grid-area: mult;
+}
+
+.subtract {
+  grid-area: subs;
+}
+
+.sum {
+  grid-area: sum;
+}
+
+.equals {
+  grid-area: eqls;
+}
+
+.seven {
+  grid-area: seven;
+}
+
+.eight {
+  grid-area: eight;
+}
+
+.nine {
+  grid-area: nine;
+}
+
+.four {
+  grid-area: four;
+}
+
+.five {
+  grid-area: five;
+}
+
+.six {
+  grid-area: six;
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+
+.zero {
+  grid-area: zero;
+  border-radius: 50px;
+}
+
+.coma {
+  grid-area: coma;
+}
