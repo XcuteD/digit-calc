@@ -75,7 +75,7 @@ let calculator = {
                 if(this.operator == '=') {
                     this.expression = input;
                     this.leftOperand = input;
-                    this.rightOperand = input;
+                    this.rightOperand = '';
                     this.result = 0;
                     this.operator = '';
                     this.eql();
